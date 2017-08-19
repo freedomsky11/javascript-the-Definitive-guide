@@ -1,0 +1,26 @@
+<html>
+    <body>
+    </body>
+</html>
+<script>
+    // 在document中的一个指定的区域输出调试消息 
+    // 如果document不存在这样一个区域，则创建一个
+    function debug(msg) {
+        // 通过查看HTML元素id属性来查找文档的调试部分
+        var log = document.getElementById("debuglog");
+
+        // 如果这个元素不存在，则创建一个
+        if (!log) {
+            log = document.createElement("div");   // 创建一个新的<div>元素
+            log.id = "debuglog";                   // 给这个元素的HTML id赋值
+            log.innerHTML = "<h1>Debug Log</h1>";  // 定义初始内容
+            document.body.appendChild(log);        // 将其添加到文档的末尾
+        }
+            // 将消息包装在<pre>中，并添加至log中
+            var pre = document.createElement(pre);
+            var text = document.createTextNode(msg);
+            pre.appendChild(text);
+            log.appendChild(pre);
+    }
+    debug("我就试一下！");
+</script>
